@@ -1,21 +1,38 @@
-# Library Template
+# Conversions Library
+
+The Conversions library contains contains a number of classes and in each of the classes you will find functions to do various conversions. You will find functions to convert from Celcius to Fahrenheit and vice versa, functions to convert from Ounces to Grams, from Gallons to Liters, from Meters to Yards, from Decimal to Hexadecimal or Octal, and many others.
+
+### Classes
+The library contains the following classes:
+
+- cAbsoluteViscosityHandler
+- cAngleHandler
+- cArrayHandler (Removed in v19.0)
+- cBitHandler
+- cEnergyHandler
+- cHexHandler
+- cKinematicViscosityHandler
+- cLengthHandler
+- cOctHandler
+- cPowerHandler
+- cPressureHandler
+- cTemperatureHandler
+- cTimeHandler
+- cVelocityHandler
+- cVolumeHandler
+- cWeightHandler
 
 ---
 
 ## Library Information
 
-This repository is a template for developing DataFlex Libraries. The `Library` directory should contain the library, and the `Demo` directory should be a demo workspace that uses the library. (Optional) the `help` directory can be used for documentation and release notes.
+This repository contains a `Library` directory where the source for the Conversions library is, and the `Demo` directory where you can find a demo workspace that uses the library.
 
-###### External Components
+The [DateAndTime library](https://github.com/DataFlex-dev/DateAndTime) uses the Conversions library and it is a good example of use of this library.
 
-If applicable, list the external components used in the table below:
-
-| Component | Version |
-| --------- | ------- |
-|           |         |
 
 ## General Information
 
 | Product  | Version           |
 | -------- | ----------------- |
-| DataFlex | 23.0, 24.0, 25.0  |
+| DataFlex | 25.0  |
