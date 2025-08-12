@@ -1,0 +1,155 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cAngleHandler.Pkg
+//
+// Purpose:
+//  Defines functions for angle conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from: http://www.onlineconversion.com/angles.htm
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Define C_PI for 3.141592653589793
+
+//[1,
+//(C_PI/3200),
+//(C_PI/200),
+//(C_PI/180),
+//(C_PI/(180*60)),
+//(C_PI/(180*3600)),
+//(C_PI/16),
+//(C_PI/8),
+//(C_PI/5),
+//(C_PI/4),
+//(C_PI/3),
+//(C_PI/2),
+//(C_PI),
+//(2*C_PI)]
+
+Enum_List
+    Define C_Radian
+    Define C_Mil
+    Define C_Grad
+    Define C_Degree
+    Define C_Minute
+    Define C_Second
+    Define C_Point
+    Define C_16thCircle
+    Define C_10thCircle
+    Define C_8thCircle
+    Define C_6thCircle
+    Define C_4thCircle
+    Define C_HalfCircle
+    Define C_FullCircle
+End_Enum_List
+
+Class cAngleHandler is a cObject
+    Function ConvertAngle Decimal decSource Integer eSourceFormat Integer eResultFormat Returns Decimal
+        Decimal decResult
+        
+        Case Begin
+            Case (eSourceFormat = C_Radian)
+                Case Begin
+                    Case (eResultFormat = C_Radian)
+                        Move decSource to decResult
+                        Case Break
+                    Case (eResultFormat = C_Mil)
+                        Move (decSource * 1018.5916358) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Grad)
+                        Move (decSource * 63.661977237) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Degree)
+                        Move (decSource * 57.295779513) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Minute)
+                        Move (decSource * 3437.7467707) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Second)
+                        Move (decSource * 206264.80625) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Point)
+                        Move (decSource * 5.0929581789) to decResult
+                        Case Break
+                    Case (eResultFormat = C_16thCircle)
+                        Move (decSource * 2.5464790895) to decResult
+                        Case Break
+                    Case (eResultFormat = C_10thCircle)
+                        Move (decSource * 1.5915494309) to decResult
+                        Case Break
+                    Case (eResultFormat = C_8thCircle)
+                        Move (decSource * 1.2732395447) to decResult
+                        Case Break
+                    Case (eResultFormat = C_6thCircle)
+                        Move (decSource * 0.95492965855) to decResult
+                        Case Break
+                    Case (eResultFormat = C_4thCircle)
+                        Move (decSource * 0.63661977237) to decResult
+                        Case Break
+                    Case (eResultFormat = C_HalfCircle)
+                        Move (decSource * 0.31830988618) to decResult
+                        Case Break
+                    Case (eResultFormat = C_FullCircle)
+                        Move (decSource * 0.15915494309) to decResult
+                        Case Break
+                Case End
+                Case Break
+            Case (eSourceFormat = C_Mil)
+                Case Begin
+                    Case (eResultFormat = C_Radian)
+                        Move (decSource * 0.00098174770425) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Mil)
+                        Move decSource to decResult
+                        Case Break
+                    Case (eResultFormat = C_Grad)
+                        Move (decSource * 0.0625) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Degree)
+                        Move (decSource * 0.05625) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Minute)
+                        Move (decSource * 3.375) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Second)
+                        Move (decSource * 202.5) to decResult
+                        Case Break
+                    Case (eResultFormat = C_Point)
+                        Move (decSource * 0.005) to decResult
+                        Case Break
+                    Case (eResultFormat = C_16thCircle)
+                        Move (decSource * 0.0025) to decResult
+                        Case Break
+                    Case (eResultFormat = C_10thCircle)
+                        Move (decSource * 0.001562) to decResult
+                        Case Break
+                    Case (eResultFormat = C_8thCircle)
+                        Move (decSource * 0.00125) to decResult
+                        Case Break
+                    Case (eResultFormat = C_6thCircle)
+                        Move (decSource * 0.0009375) to decResult
+                        Case Break
+                    Case (eResultFormat = C_4thCircle)
+                        Move (decSource * 0.000625) to decResult
+                        Case Break
+                    Case (eResultFormat = C_HalfCircle)
+                        Move (decSource * 0.0003125) to decResult
+                        Case Break
+                    Case (eResultFormat = C_FullCircle)
+                        Move (decSource * 0.00015625) to decResult
+                        Case Break
+                Case End
+                Case Break
+        Case End
+        
+        Function_Return decResult
+    End_Function
+End_Class

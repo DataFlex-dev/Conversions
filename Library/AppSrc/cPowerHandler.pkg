@@ -1,0 +1,149 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cPowerHandler.Pkg
+//
+// Purpose:
+//  Defines functions for power conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31400.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cPowerHandler is a cObject
+    Function BTUPerMinuteToFootPoundsPerSecond Decimal decBTUPerMinute Returns Decimal
+        Decimal decFootPoundsPerSecond
+        
+        Move (decBTUPerMinute * 12.969) to decFootPoundsPerSecond
+
+        Function_Return decFootPoundsPerSecond
+    End_Function
+
+    Function BTUPerMinuteToCaloriesPerMinute Decimal decBTUPerMinute Returns Decimal
+        Decimal decCaloriesPerMinute
+        
+        Move (decBTUPerMinute * 252.2) to decCaloriesPerMinute
+
+        Function_Return decCaloriesPerMinute
+    End_Function
+
+    Function BTUPerSecondToHorsePower Decimal decBTUPerSecond Returns Decimal
+        Decimal decHorsePower
+        
+        Move (decBTUPerSecond * 1.4149) to decHorsePower
+
+        Function_Return decHorsePower
+    End_Function
+    
+    Function BTUPerSecondToWatts Decimal decBTUPerSecond Returns Decimal
+        Decimal decWatts
+        
+        Move (decBTUPerSecond * 1055.1) to decWatts
+
+        Function_Return decWatts
+    End_Function
+    
+    Function HorsePowerToFootPoundsPerMinute Decimal decHorsePower Returns Decimal
+        Decimal decFootPoundsPerMinute
+        
+        Move (decHorsePower * 33000) to decFootPoundsPerMinute
+        
+        Function_Return decFootPoundsPerMinute
+    End_Function
+    
+    Function HorsePowerToFootPoundsPerSecond Decimal decHorsePower Returns Decimal
+        Decimal decFootPoundsPerSecond
+        
+        Move (decHorsePower * 550) to decFootPoundsPerSecond
+        
+        Function_Return decFootPoundsPerSecond
+    End_Function
+    
+    Function HorsePowerToKilogramMetersPerSecond Decimal decHorsePower Returns Decimal
+        Decimal decKilogramMetersPerSecond
+        
+        Move (decHorsePower * 76.040) to decKilogramMetersPerSecond
+        
+        Function_Return decKilogramMetersPerSecond
+    End_Function
+    
+    Function HorsePowerToMetricHorsePower Decimal decHorsePower Returns Decimal
+        Decimal decMetricHorsePower
+        
+        Move (decHorsePower * 1.0139) to decMetricHorsePower
+        
+        Function_Return decMetricHorsePower
+    End_Function
+    
+    Function HorsePowerToBTUPerSecond Decimal decHorsePower Returns Decimal
+        Decimal decBTUPerSecond
+        
+        Move (decHorsePower * 0.70679) to decBTUPerSecond
+        
+        Function_Return decBTUPerSecond
+    End_Function
+    
+    Function HorsePowerToBTUPerHour Decimal decHorsePower Returns Decimal
+        Decimal decBTUPerHour
+        
+        Move (decHorsePower * 2544.4) to decBTUPerHour
+        
+        Function_Return decBTUPerHour
+    End_Function
+    
+    Function HorsePowerToWatts Decimal decHorsePower Returns Decimal
+        Decimal decWatts
+        
+        Move (decHorsePower * 745.70) to decWatts
+        
+        Function_Return decWatts
+    End_Function
+    
+    Function KilowattsToBTUPerSecond Decimal decKilowatts Returns Decimal
+        Decimal decBTUPerSecond
+        
+        Move (decKilowatts * 0.94782) to decBTUPerSecond
+        
+        Function_Return decBTUPerSecond
+    End_Function
+    
+    Function KilowattsToFootPoundsPerSecond Decimal decKilowatts Returns Decimal
+        Decimal decFootPoundsPerSecond
+        
+        Move (decKilowatts * 737.56) to decFootPoundsPerSecond
+        
+        Function_Return decFootPoundsPerSecond
+    End_Function
+    
+    Function KilowattsToKilogramCaloriesPerSecond Decimal decKilowatts Returns Decimal
+        Decimal decKilogramCaloriesPerSecond
+        
+        Move (decKilowatts * 0.23885) to decKilogramCaloriesPerSecond
+        
+        Function_Return decKilogramCaloriesPerSecond
+    End_Function
+    
+    Function KilowattsToHorsePower Decimal decKilowatts Returns Decimal
+        Decimal decHorsePower
+        
+        Move (decKilowatts * 1.3410) to decHorsePower
+        
+        Function_Return decHorsePower
+    End_Function
+    
+    Function KilowattsToBTUPerHour Decimal decKilowatts Returns Decimal
+        Decimal decBTUPerHour
+        
+        Move (decKilowatts * 3412.14) to decBTUPerHour
+        
+        Function_Return decBTUPerHour
+    End_Function
+End_Class

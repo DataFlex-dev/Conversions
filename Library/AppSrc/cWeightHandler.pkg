@@ -1,0 +1,366 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cWeightHandler.Pkg
+//
+// Purpose:
+//  Defines functions for weight conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// - http://vulcan.wr.usgs.gov/Miscellaneous/ConversionTables/conversion_table.html
+// - http://www.airproducts.com/Products/fastfacts/conversion-formulas/31960.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cWeightHandler is a cObject
+    Function OuncesToPounds Decimal decOunces Returns Decimal
+        Decimal decPounds
+        
+        Move (decOunces * 0.0625) to decPounds
+        
+        Function_Return decPounds
+    End_Function
+    
+    Function OuncesToGrams Decimal decOunces Returns Decimal
+        Decimal decGrams
+        
+        Move (decOunces * 28.35) to decGrams
+        
+        Function_Return decGrams
+    End_Function    
+    
+    Function OuncesToGrains Decimal decOunces Returns Decimal
+        Decimal decGrains
+        
+        Move (decOunces * 437.6) to decGrains
+        
+        Function_Return decGrains
+    End_Function
+    
+    Function OuncesToKilograms Decimal decOunces Returns Decimal
+        Decimal decKilograms
+        
+        Move (decOunces * 0.0284) to decKilograms
+        
+        Function_Return decKilograms
+    End_Function
+
+    Function GramsToOunces Decimal decGrams Returns Decimal
+        Decimal decOunces
+        
+        Move (decGrams * 0.0353) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+
+    Function GramsToGrains Decimal decGrams Returns Decimal
+        Decimal decGrains
+        
+        Move (decGrams * 15.43) to decGrains
+        
+        Function_Return decGrains
+    End_Function
+
+    Function GramsToKilograms Decimal decGrams Returns Decimal
+        Decimal decKilograms
+        
+        Move (decGrams * 0.001) to decKilograms
+        
+        Function_Return decKilograms
+    End_Function
+    
+    Function CupsToOunces Decimal decCups Returns Decimal
+        Decimal decOunces
+        
+        Move (decCups * 8.0) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function CupsToTableSpoons Decimal decCups Returns Decimal
+        Decimal decTableSpoons
+        
+        Move (decCups * 16.0) to decTableSpoons
+        
+        Function_Return decTableSpoons
+    End_Function
+    
+    Function CupsToTeaSpoons Decimal decCups Returns Decimal
+        Decimal decTeaSpoons
+        
+        Move (decCups * 48.0) to decTeaSpoons
+        
+        Function_Return decTeaSpoons
+    End_Function
+    
+    Function GallonsToCubicFeet Decimal decGallons Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decGallons * 0.1337) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function GallonsToCubicInches Decimal decGallons Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decGallons * 231.0) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function GallonsToLiters Decimal decGallons Returns Decimal
+        Decimal decLiters
+        
+        Move (decGallons * 3.785) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function GallonsToPoundsOfWater Decimal decGallons Returns Decimal
+        Decimal decPoundsOfWater
+        
+        Move (decGallons * 8.336) to decPoundsOfWater
+        
+        Function_Return decPoundsOfWater
+    End_Function
+    
+    Function GallonsToOuncesOfWater Decimal decGallons Returns Decimal
+        Decimal decOuncesOfWater
+        
+        Move (decGallons * 133.376) to decOuncesOfWater
+        
+        Function_Return decOuncesOfWater
+    End_Function
+    
+    Function LitersToCubicMeters Decimal decLiters Returns Decimal
+        Decimal decCubicMeters
+        
+        Move (decLiters * 0.001) to decCubicMeters
+        
+        Function_Return decCubicMeters
+    End_Function
+    
+    Function LitersToQuarts Decimal decLiters Returns Decimal
+        Decimal decQuarts
+        
+        Move (decLiters * 1.057) to decQuarts
+        
+        Function_Return decQuarts
+    End_Function
+    
+    Function LitersToGallons Decimal decLiters Returns Decimal
+        Decimal decGallons
+        
+        Move (decLiters * 0.2642) to decGallons
+        
+        Function_Return decGallons
+    End_Function
+    
+    Function LitersToCubicFeet Decimal decLiters Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decLiters * 0.03531) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function PoundsToOunces Decimal decPounds Returns Decimal
+        Decimal decOunces
+        
+        Move (decPounds * 16.0) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function PoundsToKilograms Decimal decPounds Returns Decimal
+        Decimal decKilograms
+        
+        Move (decPounds * 0.4536) to decKilograms
+        
+        Function_Return decKilograms
+    End_Function
+    
+    Function PoundsToGrains Decimal decPounds Returns Decimal
+        Decimal decGrains
+        
+        Move (decPounds * 7000.0) to decGrains
+        
+        Function_Return decGrains
+    End_Function
+    
+    Function PoundsToGrams Decimal decPounds Returns Decimal
+        Decimal decGrams
+        
+        Move (decPounds * 453.6) to decGrams
+        
+        Function_Return decGrams
+    End_Function
+    
+    Function PoundsToTons Decimal decPounds Returns Decimal
+        Decimal decTons
+        
+        Move (decPounds * 0.0005) to decTons
+        
+        Function_Return decTons
+    End_Function
+    
+    Function PoundsToPoundsTroy Decimal decPounds Returns Decimal
+        Decimal decPoundsTroy
+        
+        Move (decPounds * 1.2153) to decPoundsTroy
+        
+        Function_Return decPoundsTroy
+    End_Function
+    
+    Function QuartsToPints Decimal decQuarts Returns Decimal
+        Decimal decPints
+        
+        Move (decQuarts * 2.0) to decPints
+        
+        Function_Return decPints
+    End_Function
+    
+    Function QuartsToGallons Decimal decQuarts Returns Decimal
+        Decimal decGallons
+        
+        Move (decQuarts * 0.25) to decGallons
+        
+        Function_Return decGallons
+    End_Function
+    
+    Function QuartsToLiters Decimal decQuarts Returns Decimal
+        Decimal decLiters
+        
+        Move (decQuarts * 0.9464) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function QuartsToPoundsOfWater Decimal decQuarts Returns Decimal
+        Decimal decPoundsOfWater
+        
+        Move (decQuarts * 2.084) to decPoundsOfWater
+        
+        Function_Return decPoundsOfWater
+    End_Function
+    
+    Function FluidOuncesToOunces Decimal decFluidOunces Returns Decimal
+        Decimal decOunces
+        
+        Move (decFluidOunces * 4.8) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function OuncesToGramsDryWeight Decimal decOunces Returns Decimal
+        Decimal decGramsDryWeight
+        
+        Move (decOunces * 137.0) to decGramsDryWeight
+        
+        Function_Return decGramsDryWeight
+    End_Function
+    
+    Function GrainsToGrams Decimal decGrains Returns Decimal
+        Decimal decGrams
+        
+        Move (decGrains * 0.0648) to decGrams
+        
+        Function_Return decGrams        
+    End_Function
+    
+    Function TonsToOunces Decimal decTons Returns Decimal
+        Decimal decOunces
+        
+        Move (decTons * 32000.0) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function TonsToPounds Decimal decTons Returns Decimal
+        Decimal decPounds
+        
+        Move (decTons * 2000.0) to decPounds
+        
+        Function_Return decPounds
+    End_Function
+    
+    Function TonsToKilograms Decimal decTons Returns Decimal
+        Decimal decKilograms
+        
+        Move (decTons * 907.2) to decKilograms
+        
+        Function_Return decKilograms
+    End_Function
+    
+    Function KilogramsToOunces Decimal decKilograms Returns Decimal
+        Decimal decOunces
+        
+        Move (decKilograms * 35.274) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function KilogramsToPounds Decimal decKilograms Returns Decimal
+        Decimal decPounds
+        
+        Move (decKilograms * 2.205) to decPounds
+        
+        Function_Return decPounds
+    End_Function
+    
+    Function KilogramsToGrams Decimal decKilograms Returns Decimal
+        Decimal decGrams
+        
+        Move (decKilograms * 1000.0) to decGrams
+        
+        Function_Return decGrams
+    End_Function
+    
+    Function KilogramsToMetricTons Decimal decKilograms Returns Decimal
+        Decimal decMetricTons
+        
+        Move (decKilograms * 0.001) to decMetricTons
+        
+        Function_Return decMetricTons
+    End_Function
+    
+    Function MetricTonsToOunces Decimal decMetricTons Returns Decimal
+        Decimal decOunces
+        
+        Move (decMetricTons * 35274.0) to decOunces
+        
+        Function_Return decOunces
+    End_Function
+    
+    Function MetricTonsToPounds Decimal decMetricTons Returns Decimal
+        Decimal decPounds
+        
+        Move (decMetricTons * 2205.0) to decPounds
+        
+        Function_Return decPounds
+    End_Function
+    
+    Function MetricTonsToTons Decimal decMetricTons Returns Decimal
+        Decimal decTons
+        
+        Move (decMetricTons * 1.102) to decTons
+        
+        Function_Return decTons
+    End_Function
+    
+    Function MetricTonsToKilograms Decimal decMetricTons Returns Decimal
+        Decimal decKilograms
+        
+        Move (decMetricTons * 1000.0) to decKilograms
+        
+        Function_Return decKilograms
+    End_Function
+End_Class

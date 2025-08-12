@@ -1,0 +1,69 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cAbsoluteViscosityHandler.Pkg
+//
+// Purpose:
+//  Defines functions for absolute viscosity conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31850.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cAbsoluteViscosityHandler is a cObject
+    Function PoiseToGmCmPerSecond Decimal decPoise Returns Decimal
+        Decimal decGmCmPerSecond
+        
+        Move (decPoise * 1.0) to decGmCmPerSecond
+        
+        Function_Return decGmCmPerSecond
+    End_Function
+
+    Function PoiseToDyneSecondPerSquareCm Decimal decPoise Returns Decimal
+        Decimal decDyneSecondPerSquareCm
+        
+        Move (decPoise * 1.0) to decDyneSecondPerSquareCm
+        
+        Function_Return decDyneSecondPerSquareCm
+    End_Function
+
+    Function PoiseToCentiPoise Decimal decPoise Returns Decimal
+        Decimal decCentiPoise
+        
+        Move (decPoise * 100.0) to decCentiPoise
+        
+        Function_Return decCentiPoise
+    End_Function    
+
+    Function CentiPoiseToLbPerFeetSecond Decimal decCentiPoise Returns Decimal
+        Decimal decLbPerFeetSecond
+        
+        Move (decCentiPoise * 0.00067197) to decLbPerFeetSecond
+        
+        Function_Return decLbPerFeetSecond
+    End_Function   
+
+    Function CentiPoiseToLbSecondPerSquareFeet Decimal decCentiPoise Returns Decimal
+        Decimal decLbSecondPerSquareFeet
+        
+        Move (decCentiPoise * 0.0000209) to decLbSecondPerSquareFeet
+        
+        Function_Return decLbSecondPerSquareFeet
+    End_Function
+
+    Function CentiPoiseToLbFeetPerHour Decimal decCentiPoise Returns Decimal
+        Decimal decLbFeetPerHour
+        
+        Move (decCentiPoise * 2.4191) to decLbFeetPerHour
+        
+        Function_Return decLbFeetPerHour
+    End_Function
+End_Class

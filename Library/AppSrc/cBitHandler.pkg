@@ -1,0 +1,182 @@
+Use VdfBase.pkg
+Use Dferror.pkg
+
+// cBitHandler.pkg - Todd Forsberg - June 22, 2010
+
+//  1 Bit = 1/8 Byte
+//  1 Nibble = 1/2 Byte
+//  1 Byte = 1 Byte
+//  1 Kilobyte = 1,024 Bytes
+//  1 Megabyte = 1,048,576 Bytes
+//  1 Gigabyte = 1,073,741,824 Bytes
+//  1 Terabyte = 1,099,511,627,776 Bytes
+//  1 Petabyte = 1,125,899,906,842,624 Bytes
+//  1 Exabyte = 1,152,921,504,606,846,976 Bytes
+//  1 Zettabyte = 1,180,591,620,717,411,303,424 Bytes
+//  1 Yottabyte = 1,208,925,819,614,629,174,706,176 Bytes
+//  1 Brontobyte = 1,237,940,039,285,380,274,899,124,224 Bytes
+
+//  The 1000 can be replaced with 1024 and still be correct using the other acceptable standards. Both of these standards are correct depending on what type of storage you are referring.
+//  
+//  Processor or Virtual Storage
+//  ú 1 Bit = Binary Digit
+//  ú 8 Bits = 1 Byte
+//  ú 1024 Bytes = 1 Kilobyte 
+//  ú 1024 Kilobytes = 1 Megabyte 
+//  ú 1024 Megabytes = 1 Gigabyte 
+//  ú 1024 Gigabytes = 1 Terabyte 
+//  ú 1024 Terabytes = 1 Petabyte 
+//  ú 1024 Petabytes = 1 Exabyte
+//  ú 1024 Exabytes = 1 Zettabyte 
+//  ú 1024 Zettabytes = 1 Yottabyte 
+//  ú 1024 Yottabytes = 1 Brontobyte
+//  ú 1024 Brontobytes = 1 Geopbyte
+//  
+//  Disk Storage
+//  ú 1 Bit = Binary Digit
+//  ú 8 Bits = 1 Byte
+//  ú 1000 Bytes = 1 Kilobyte 
+//  ú 1000 Kilobytes = 1 Megabyte 
+//  ú 1000 Megabytes = 1 Gigabyte 
+//  ú 1000 Gigabytes = 1 Terabyte 
+//  ú 1000 Terabytes = 1 Petabyte 
+//  ú 1000 Petabytes = 1 Exabyte
+//  ú 1000 Exabytes = 1 Zettabyte 
+//  ú 1000 Zettabytes = 1 Yottabyte 
+//  ú 1000 Yottabytes = 1 Brontobyte
+//  ú 1000 Brontobytes = 1 Geopbyte 
+
+//  Now let's go into a little more detail.
+//  
+//  Bit: a Bit is the smallest unit of data that a computer uses. It can be used to represent two states of information, such as Yes or No.
+//  
+//  Byte: a Byte is equal to 8 Bits. a Byte can represent 256 states of information, for example, numbers or a combination of numbers and letters. 1 Byte could be equal to one character. 10 Bytes could be equal to a word. 100 Bytes would equal an average sentence.
+//  
+//  Kilobyte: a Kilobyte is approximately 1,000 Bytes, actually 1,024 Bytes depending on which definition is used. 1 Kilobyte would be equal to this paragraph you are reading, whereas 100 Kilobytes would equal an entire page.
+//  
+//  Megabyte: a Megabyte is approximately 1,000 Kilobytes.  
+//            In the early days of computing, a Megabyte was considered to be a large amount of data. 
+//            These days with a 500 Gigabyte hard drive on a computer being common, a Megabyte doesn't seem like much anymore.
+//            One of those old 3-1/2 inch floppy disks can hold 1.44 Megabytes or the equivalent of a small book.
+//            100 Megabytes might hold a couple volumes of Encyclopedias.  
+//            600 Megabytes is about the amount of data that will fit on a CD-ROM disk.
+//  
+//  Gigabyte: a Gigabyte is approximately 1,000 Megabytes. a Gigabyte is a very common term used these days when referring to disk space or drive storage. 1 Gigabyte of data is almost twice the amount of data that a CD-ROM can hold. But it's about one thousand times the capacity of a 3-1/2 floppy disk. 1 Gigabyte could hold the contents of about 10 yards of books on a shelf. 100 Gigabytes could hold the entire library floor of academic journals.
+//  
+//  Terabyte: a Terabyte is approximately one trillion bytes, or 1,000 Gigabytes. 
+//            Now we are getting up there to a size that is so large that it is not a common term yet.
+//            to put it in some perspective, a Terabyte could hold about 3.6 million 300 Kilobyte images or maybe about 300 hours of good quality video. 
+//            a Terabyte could hold 1,000 copies of the Encyclopedia Britannica. 
+//            Ten Terabytes could hold the printed collection of the Library of Congress. That's a lot of data. 
+//  
+//  Petabyte: a Petabyte is approximately 1,000 Terabytes or one million Gigabytes. It's hard to visualize what a Petabyte could hold. 1 Petabyte could hold approximately 20 million 4-door filing cabinets full of text. It could hold 500 billion pages of standard printed text. It would take about 500 million floppy disks to store the same amount of data.
+//  
+//  Exabyte: an Exabyte is approximately 1,000 Petabytes. Another way to look at it is that a Petabyte is approximately one quintillion bytes or one billion Gigabytes. There is not much to compare an Exabyte to. It has been said that 5 Exabytes would be equal to all of the words ever spoken by mankind.
+//  
+//  Zettabyte: a Zettabyte is approximately 1,000 Exabytes. There is Nothing to compare a Zettabyte to but to say that it would take a whole lot of ones and zeroes to fill it up.
+//  
+//  Yottabyte: a Yottabyte is approximately 1,000 Zettabytes. It would take approximately 11 trillion years to download a yottabyte file from the Internet using high-power broadband. You can compare it to the World Wide Web as the entire Internet almost takes up a Yottabyte.
+//  
+//  Brontobyte: a Brontobyte is (you guessed it) approximately 1,000 Yottabytes. The only thing there is to say about a Brontobyte is that it is a 1 followed by 27 zeroes!
+//  
+//  Geopbyte: a Geopbyte is about 1000 Brontobytes! not sure why this term was created. I'm doubting that anyone alive today will ever see a Geopbyte hard drive. One way of looking at a geopbyte is 15267 6504600 2283229 4012496 7031205 376 bytes!
+//  
+//  Now you should have a good understanding of megabytes, gigabytes, terabytes and everything in Between. Now If we can just figure out what a WhatsAByte is......:)
+
+// Source: http://www.whatsabyte.com/
+
+Enum_List // Bit Handler Constants
+    Define BHC_BIT      // do not change the order
+    Define BHC_KILOBIT  // of any of these constants
+    Define BHC_MEGABIT
+    Define BHC_GIGABIT
+    Define BHC_TERABIT
+    Define BHC_PETABIT
+    Define BHC_EXABIT
+    Define BHC_ZETTABIT
+    Define BHC_YOTTABIT
+    Define BHC_BRONTOBIT
+    Define BHC_GEOPBIT
+  
+    Define BHC_BYTE
+    Define BHC_KILOBYTE
+    Define BHC_MEGABYTE
+    Define BHC_GIGABYTE
+    Define BHC_TERABYTE
+    Define BHC_PETABYTE
+    Define BHC_EXABYTE
+    Define BHC_ZETTABYTE
+    Define BHC_YOTTABYTE
+    Define BHC_BRONTOBYTE
+    Define BHC_GEOPBYTE
+End_Enum_List
+
+Class cBitHandler is a cObject  
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        
+        Property Integer piBase 1024
+    End_Procedure
+    
+    { Visibility = Private }
+    Function Private_Conversion Integer iVal UShort iFromType UShort iToType Returns Real
+        Real rBase rMultiplier
+        
+        Get piBase to rBase
+        If ((iFromType < 0) or (iToType < 0)) Begin 
+            Error DFERR_PROGRAM "Invalid Bit/Byte Type"
+            Function_Return 0
+        End
+        Case Begin
+            Case (iFromType > iToType)
+                Move (rBase ^ Real(iFromType - iToType)) to rMultiplier
+                Case Break
+            Case (iFromType < iToType)
+                Move (Real(iToType - iFromType) / rBase) to rMultiplier
+                Case Break
+            Case Else
+                Move 1 to rMultiplier
+        Case End
+        
+        Function_Return (iVal * rMultiplier)
+    End_Function
+  
+    Function ConvertBits Integer iVal UShort iFromType UShort iToType Returns Real
+        Real rVal
+        
+        Get Private_Conversion iVal iFromType iToType to rVal
+        
+        Function_Return rVal
+    End_Function
+    
+    Function ConvertBytes Integer iVal UShort iFromType UShort iToType Returns Real
+        Real rVal
+        
+        Move (iFromType - BHC_BYTE) to iFromType
+        Move (iToType - BHC_BYTE) to iToType
+        
+        Get Private_Conversion iVal iFromType iToType to rVal
+        
+        Function_Return rVal
+    End_Function
+    
+    Function ConvertBytesToBits Integer iVal UShort iFromType UShort iToType Returns Real
+        Real rVal
+        
+        Move (iFromType - BHC_BYTE) to iFromType
+        
+        Get Private_Conversion iVal iFromType iToType to rVal
+        
+        Function_Return (rVal * 8.0)
+    End_Function
+    
+    Function ConvertBitsToBytes Integer iVal UShort iFromType UShort iToType Returns Real
+        Real rVal
+        
+        Move (iToType - BHC_BYTE) to iToType
+        
+        Get Private_Conversion iVal iFromType iToType to rVal
+        
+        Function_Return (rVal / 8.0)
+    End_Function
+End_Class

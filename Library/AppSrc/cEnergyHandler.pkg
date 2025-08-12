@@ -1,0 +1,61 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cEnergyHandler.Pkg
+//
+// Purpose:
+//  Defines functions for energy conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31200.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cEnergyHandler is a cObject
+    Function BTUToFootPounds Decimal decBTU Returns Decimal
+        Decimal decFootFounds
+        
+        Move (decBTU * 778.17) to decFootFounds
+        
+        Function_Return decFootFounds
+    End_Function
+
+    Function BTUToKwH Decimal decBTU Returns Decimal
+        Decimal decKwH
+        
+        Move (decBTU * 2.9307 * (10 ^ 4)) to decKwH
+        
+        Function_Return decKwH
+    End_Function
+
+    Function BTUToCalories Decimal decBTU Returns Decimal
+        Decimal decCalories
+        
+        Move (decBTU * 252.2) to decCalories
+        
+        Function_Return decCalories
+    End_Function
+
+    Function BTUToJoules Decimal decBTU Returns Decimal
+        Decimal decJoules
+        
+        Move (decBTU * 1055.06) to decJoules
+        
+        Function_Return decJoules
+    End_Function
+
+    Function CaloriesToBTU Decimal decCalories Returns Decimal
+        Decimal decBTU
+        
+        Move (decCalories * 3.968 * (10 ^ 3)) to decBTU
+        
+        Function_Return decBTU
+    End_Function
+End_Class

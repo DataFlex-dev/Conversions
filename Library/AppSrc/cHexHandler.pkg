@@ -1,0 +1,133 @@
+﻿//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cHexHandler.Pkg
+//
+// Purpose:
+//  Defines functions for hexadecimal operations
+//
+// Author:
+//  Vincent Oorsprong
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VDFbase.pkg
+
+{ ClassLibrary = Common }
+{ Description = "This class contains methods to convert from numeric values to hexadecimal values and back" }
+Class cHexHandler is a cObject
+    { Description = "Returns true when the passed string is a hex string (00-FF)" }
+    { MethodType = Method }
+    Function IsHex String sHex Returns Boolean
+        Integer iCounter iLength
+        String sChar
+
+        Move (Uppercase (sHex)) to sHex
+        Move (Length (sHex)) to iLength
+
+        For iCounter from 1 to iLength
+            Move (Mid (sHex, 1, iCounter)) to sChar
+            If (Pos (sChar, "0123456789ABCDEF") = 0) Begin
+                Function_Return False
+            End
+        Loop
+
+        Function_Return True
+    End_Function
+
+    { Description = "Converts a character presented by an integer to a hex value" }
+    { MethodType = Method }
+    Function CharToHex Integer iChar Returns String
+        String sHex
+
+        Send IntToHex iChar (&sHex)
+
+        Function_Return sHex
+    End_Function
+
+    { MethodType = Method }
+    { Visibility = Private }
+    { Description = "Converts a integer presentation of a character to a HEX value" }
+    Procedure IntToHex Integer iInput String ByRef sOutput
+        UChar ucData
+
+        Move (Mod (iInput, 16)) to iInput
+        If (iInput < 10) Begin
+            Move (Cast (48 + iInput, UChar)) to ucData
+        End
+        Else Begin
+            Move (Cast (65 + iInput - 10, UChar)) to ucData
+        End
+        Move (sOutput + UCharToString (ucData)) to sOutput
+    End_Procedure
+
+    { Description = "Converts a UTF-8 input string into a HEX result" }
+    { MethodType = Method }
+    Function StrToHex String sInput Returns String
+        Integer iLength iPos
+        String sHex
+        UChar[] ucChars
+
+        Move (StringToUCharArray (sInput)) to ucChars
+        Move (SizeOfArray (ucChars) - 1) to iLength
+        for iPos from 0 to iLength
+            Send IntToHex (Cast (ucChars[iPos], UInteger) / 16) (&sHex)
+            Send IntToHex (Mod (ucChars[iPos], 16)) (&sHex)
+        Loop
+
+        Function_Return sHex
+    End_Function
+
+    { Visibility = Private }
+    { MethodType = Method }
+    { Description = "Converts a uChar to a integer representation" }
+    Function HexToInt UChar ucInput Returns Integer
+        Integer iResult
+
+        If (ucInput >= 48 and ucInput <= 57) Begin
+            Move (ucInput - 48) to iResult
+        End
+        Else Begin
+            Move (ucInput - 65 + 10) to iResult
+        End
+
+        Move (Cast (Mod (iResult, 16), Integer)) to iResult
+
+        Function_Return iResult
+    End_Function
+
+    { Description = "Converts a hexadecimal string into a UTF-8 string." }
+    { MethodType = Method }
+    Function HexToStr String sHex Returns String
+        UChar[] ucData
+        Integer iLength iPos iHighByte iLowByte
+        String sOutput
+
+        Move (StringToUCharArray (sHex)) to ucData
+        Move (SizeOfArray (ucData) - 1) to iLength
+        While (iPos < iLength)
+            Get HexToInt ucData[iPos] to iHighByte
+            Get HexToInt ucData[iPos + 1] to iLowByte
+            Move (sOutput + UCharToString ((iHighByte * 16) + iLowByte)) to sOutput
+            Move (iPos + 2) to iPos
+        Loop
+
+        Function_Return sOutput
+    End_Function
+
+    { Description = "Converts a hex value to an integer value. A value as 'A' will return 65" }
+    { MethodType = Method }
+    Function HexToDec String sHex Returns Integer
+        Boolean bState
+        Integer iValue
+
+        Get_StrictEval to bState
+        Set_StrictEval to False
+        Move ('$' + Trim (sHex)) to iValue
+        Set_StrictEval to bState
+
+        Function_Return iValue
+    End_Function
+End_Class

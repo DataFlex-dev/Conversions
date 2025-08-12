@@ -1,0 +1,157 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cPressureHandler.Pkg
+//
+// Purpose:
+//  Defines functions for pressure conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31500.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cPressureHandler is a cObject
+    Function AtmospheresToPoundsPerSquareInch Decimal decAtmospheres Returns Decimal
+        Decimal decPoundsPerSquareInch
+        
+        Move (decAtmospheres * 14.70) to decPoundsPerSquareInch
+        
+        Function_Return decPoundsPerSquareInch
+    End_Function
+
+    Function AtmospheresToInchesWater Decimal decAtmospheres Returns Decimal
+        Decimal decInchesWater
+        
+        Move (decAtmospheres * 407.14) to decInchesWater
+        
+        Function_Return decInchesWater
+    End_Function
+
+    Function AtmospheresToKilogramsPerSquareCentimeter Decimal decAtmospheres Returns Decimal
+        Decimal decKilogramsPerSquareCentimeter
+        
+        Move (decAtmospheres * 1.0332) to decKilogramsPerSquareCentimeter
+        
+        Function_Return decKilogramsPerSquareCentimeter
+    End_Function
+    
+    Function GramsPerSquareCentimeterToPoundsPerSquareInch Decimal decGramsPerSquareCentimeter Returns Decimal
+        Decimal decPoundsPerSquareInch
+        
+        Move (decGramsPerSquareCentimeter * 0.014223) to decPoundsPerSquareInch
+        
+        Function_Return decPoundsPerSquareInch
+    End_Function
+    
+    Function InchesOfMercuryToFeetOfWater Decimal decInchesOfMercury Returns Decimal
+        Decimal decFeetOfWater
+        
+        Move (decInchesOfMercury * 1.133) to decFeetOfWater
+        
+        Function_Return decFeetOfWater
+    End_Function
+    
+    Function InchesOfMercuryToPoundsPerSquareInch Decimal decInchesOfMercury Returns Decimal
+        Decimal decPoundsPerSquareInch
+        
+        Move (decInchesOfMercury * 0.4912) to decPoundsPerSquareInch
+        
+        Function_Return decPoundsPerSquareInch
+    End_Function
+    
+    Function InchesOfWaterToInchesOfMercury Decimal decInchesOfWater Returns Decimal
+        Decimal decInchesOfMercury
+        
+        Move (decInchesOfWater * 0.0735) to decInchesOfMercury
+        
+        Function_Return decInchesOfMercury
+    End_Function
+    
+    Function InchesOfWaterToPoundsPerSquareFoot Decimal decInchesOfWater Returns Decimal
+        Decimal decPoundsPerSquareFoot
+        
+        Move (decInchesOfWater * 5.204) to decPoundsPerSquareFoot
+        
+        Function_Return decPoundsPerSquareFoot
+    End_Function
+    
+    Function InchesOfWaterToPoundsPerSquareInch Decimal decInchesOfWater Returns Decimal
+        Decimal decPoundsPerSquareInch
+        
+        Move (decInchesOfWater * 0.0361) to decPoundsPerSquareInch
+        
+        Function_Return decPoundsPerSquareInch
+    End_Function
+    
+    Function InchesOfWaterToOuncesPerSquareInch Decimal decInchesOfWater Returns Decimal
+        Decimal decOuncesPerSquareInch
+        
+        Move (decInchesOfWater * 0.5781) to decOuncesPerSquareInch
+        
+        Function_Return decOuncesPerSquareInch
+    End_Function
+    
+    Function KilogramsPerSquareCentimeterToAtmospheres Decimal decKilogramsPerSquareCentimeter Returns Decimal
+        Decimal decAtmospheres
+        
+        Move (decKilogramsPerSquareCentimeter * 0.96784) to decAtmospheres
+        
+        Function_Return decAtmospheres
+    End_Function
+    
+    Function KilogramsPerSquareCentimeterToPoundsPerSquareInch Decimal decKilogramsPerSquareCentimeter Returns Decimal
+        Decimal decPoundsPerSquareInch
+        
+        Move (decKilogramsPerSquareCentimeter * 14.233) to decPoundsPerSquareInch
+        
+        Function_Return decPoundsPerSquareInch
+    End_Function
+    
+    Function PoundsPerSquareInchToAtmospheres Decimal decPoundsPerSquareInch Returns Decimal
+        Decimal decAtmospheres
+        
+        Move (decPoundsPerSquareInch * 0.068046) to decAtmospheres
+        
+        Function_Return decAtmospheres
+    End_Function
+    
+    Function PoundsPerSquareInchToInchesOfMercury Decimal decPoundsPerSquareInch Returns Decimal
+        Decimal decInchesOfMercury
+        
+        Move (decPoundsPerSquareInch * 2.036) to decInchesOfMercury
+        
+        Function_Return decInchesOfMercury
+    End_Function
+    
+    Function PoundsPerSquareInchToFeetOfWater Decimal decPoundsPerSquareInch Returns Decimal
+        Decimal decFeetOfWater
+        
+        Move (decPoundsPerSquareInch * 2.307) to decFeetOfWater
+        
+        Function_Return decFeetOfWater
+    End_Function
+    
+    Function PoundsPerSquareInchToInchesOfWater Decimal decPoundsPerSquareInch Returns Decimal
+        Decimal decInchesOfWater
+        
+        Move (decPoundsPerSquareInch * 27.67) to decInchesOfWater
+        
+        Function_Return decInchesOfWater
+    End_Function
+    
+    Function PoundsPerSquareInchToKilogramsPerSquareCentimeter Decimal decPoundsPerSquareInch Returns Decimal
+        Decimal decKilogramsPerSquareCentimeter
+        
+        Move (decPoundsPerSquareInch * 0.070307) to decKilogramsPerSquareCentimeter
+        
+        Function_Return decKilogramsPerSquareCentimeter
+    End_Function
+End_Class

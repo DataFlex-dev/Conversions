@@ -1,0 +1,77 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cVelocityHandler.Pkg
+//
+// Purpose:
+//  Defines functions for velocity conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31800.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cVelocityHandler is a cObject
+    Function MetersPerSecondsToFeetPerSecond Decimal decMetersPerSecond Returns Decimal
+        Decimal decFeetPerSecond
+        
+        Move (decMetersPerSecond * 3.2808) to decFeetPerSecond
+        
+        Function_Return decFeetPerSecond
+    End_Function
+
+    Function MetersPerSecondsToMilesPerHour Decimal decMetersPerSecond Returns Decimal
+        Decimal decMilesPerHour
+        
+        Move (decMetersPerSecond * 2.2369) to decMilesPerHour
+        
+        Function_Return decMilesPerHour
+    End_Function
+
+    Function MetersPerSecondsToKilometersPerHour Decimal decMetersPerSecond Returns Decimal
+        Decimal decKilometersPerHour
+        
+        Move (decMetersPerSecond * 3.600) to decKilometersPerHour
+        
+        Function_Return decKilometersPerHour
+    End_Function
+    
+    Function MilesPerHourToFeetPerSecond Decimal decMilesPerHour Returns Decimal
+        Decimal decFeetPerSecond
+        
+        Move (decMilesPerHour * 1.4667) to decFeetPerSecond
+        
+        Function_Return decFeetPerSecond
+    End_Function
+    
+    Function MilesPerHourToMetersPerSecond Decimal decMilesPerHour Returns Decimal
+        Decimal decMetersPerSecond
+        
+        Move (decMilesPerHour * 0.44704) to decMetersPerSecond
+        
+        Function_Return decMetersPerSecond
+    End_Function
+    
+    Function MilesPerHourToKilometersPerHour Decimal decMilesPerHour Returns Decimal
+        Decimal decKilometersPerHour
+        
+        Move (decMilesPerHour * 1.6093) to decKilometersPerHour
+        
+        Function_Return decKilometersPerHour
+    End_Function
+    
+    Function MilesPerHourToKnots Decimal decMilesPerHour Returns Decimal
+        Decimal decKnots
+        
+        Move (decMilesPerHour * 0.86898) to decKnots
+        
+        Function_Return decKnots
+    End_Function
+End_Class

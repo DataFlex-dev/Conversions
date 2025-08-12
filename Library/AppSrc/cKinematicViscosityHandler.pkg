@@ -1,0 +1,45 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cKinematicViscosityHandler.Pkg
+//
+// Purpose:
+//  Defines functions for kinematic viscosity conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31900.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cKinematicViscosityHandler is a cObject
+    Function StokeToSquareCmPerSecond Decimal decStoke Returns Decimal
+        Decimal decSquareCmPerSecond
+        
+        Move (decStoke * 1.0) to decSquareCmPerSecond
+        
+        Function_Return decSquareCmPerSecond
+    End_Function
+
+    Function StokeToSquareInchPerSecond Decimal decStoke Returns Decimal
+        Decimal decSquareInchPerSecond
+        
+        Move (decStoke * 0.155) to decSquareInchPerSecond
+        
+        Function_Return decSquareInchPerSecond
+    End_Function
+
+    Function StokeToSquareFeetPerSecond Decimal decStoke Returns Decimal
+        Decimal decSquareFeetPerSecond
+        
+        Move (decStoke * 0.0010764) to decSquareFeetPerSecond
+        
+        Function_Return decSquareFeetPerSecond
+    End_Function
+End_Class

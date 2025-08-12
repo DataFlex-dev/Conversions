@@ -1,0 +1,253 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cVolumeHandler.Pkg
+//
+// Purpose:
+//  Defines functions for volume conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31930.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cVolumeHandler is a cObject
+    Function USPetroleumBarrelsToUSGallons Decimal decUSPetroleumBarrels Returns Decimal
+        Decimal decUSGallons
+        
+        Move (decUSPetroleumBarrels * 42) to decUSGallons
+        
+        Function_Return decUSGallons
+    End_Function
+    
+    Function USLiquidBarrelsToUSGallons Decimal decUSLiquidBarrels Returns Decimal
+        Decimal decUSGallons
+        
+        Move (decUSLiquidBarrels * 31.5) to decUSGallons
+        
+        Function_Return decUSGallons
+    End_Function
+    
+    Function CubicCentimetersToLiters Decimal decCubicCentimeters Returns Decimal
+        Decimal decLiters
+        
+        Move (decCubicCentimeters * (10 ^ -3)) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function CubicCentimetersToCubicInches Decimal decCubicCentimeters Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decCubicCentimeters * 0.061024) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function CubicMetersToCubicCentimeters Decimal decCubicMeters Returns Decimal
+        Decimal decCubicCentimeters
+        
+        Move (decCubicMeters * (10 ^ 6)) to decCubicCentimeters
+        
+        Function_Return decCubicCentimeters
+    End_Function
+    
+    Function CubicMetersToCubicFeet Decimal decCubicMeters Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decCubicMeters * 35.3147) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function CubicMetersToUSLiquidGallons Decimal decCubicMeters Returns Decimal
+        Decimal decUSLiquidGallons
+        
+        Move (decCubicMeters * 264.17) to decUSLiquidGallons
+        
+        Function_Return decUSLiquidGallons
+    End_Function
+    
+    Function CubicFeetToCubicCentimeters Decimal decCubicFeet Returns Decimal
+        Decimal decCubicCentimeters
+        
+        Move (decCubicFeet * 28317) to decCubicCentimeters
+        
+        Function_Return decCubicCentimeters
+    End_Function
+    
+    Function CubicFeetToCubicInches Decimal decCubicFeet Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decCubicFeet * 1728) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function CubicFeetToCubicYards Decimal decCubicFeet Returns Decimal
+        Decimal decCubicYards
+        
+        Move (decCubicFeet * 0.037037) to decCubicYards
+        
+        Function_Return decCubicYards
+    End_Function
+    
+    Function CubicFeetToGallons Decimal decCubicFeet Returns Decimal
+        Decimal decGallons
+        
+        Move (decCubicFeet * 7.4805) to decGallons
+        
+        Function_Return decGallons
+    End_Function
+    
+    Function CubicFeetToLiters Decimal decCubicFeet Returns Decimal
+        Decimal decLiters
+        
+        Move (decCubicFeet * 28.316) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function ImperialGallonsToCubicInches Decimal decImperialGallons Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decImperialGallons * 277.42) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function ImperialGallonsToUSGallons Decimal decImperialGallons Returns Decimal
+        Decimal decUSGallons
+        
+        Move (decImperialGallons * 1.201) to decUSGallons
+        
+        Function_Return decUSGallons
+    End_Function
+    
+    Function ImperialGallonsToLiters Decimal decImperialGallons Returns Decimal
+        Decimal decLiters
+        
+        Move (decImperialGallons * 4.5460) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function USLiquidGallonsToCubicInches Decimal decUSLiquidGallons Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decUSLiquidGallons * 231) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function USLiquidGallonsToLiters Decimal decUSLiquidGallons Returns Decimal
+        Decimal decLiters
+        
+        Move (decUSLiquidGallons * 3.7853) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function USLiquidGallonsToImperialGallons Decimal decUSLiquidGallons Returns Decimal
+        Decimal decImperialGallons
+        
+        Move (decUSLiquidGallons * 0.8327) to decImperialGallons
+        
+        Function_Return decImperialGallons
+    End_Function
+    
+    Function USLiquidGallonsToFluidOunces Decimal decUSLiquidGallons Returns Decimal
+        Decimal decFluidOunces
+        
+        Move (decUSLiquidGallons * 128) to decFluidOunces
+        
+        Function_Return decFluidOunces
+    End_Function
+    
+    Function LitersToGallons Decimal decLiters Returns Decimal
+        Decimal decGallons
+        
+        Move (decLiters * 0.26418) to decGallons
+        
+        Function_Return decGallons
+    End_Function
+    
+    Function LitersToCubicFeet Decimal decLiters Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decLiters * 0.035316) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function LitersToQuarts Decimal decLiters Returns Decimal
+        Decimal decQuarts
+        
+        Move (decLiters * 1.0567) to decQuarts
+        
+        Function_Return decQuarts
+    End_Function
+    
+    Function LitersToCubicInches Decimal decLiters Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decLiters * 61.025) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function FluidOuncesToCubicCentimeters Decimal decFluidOunces Returns Decimal
+        Decimal decCubicCentimeters
+        
+        Move (decFluidOunces * 29.574) to decCubicCentimeters
+        
+        Function_Return decCubicCentimeters
+    End_Function
+    
+    Function FluidOuncesToCubicInches Decimal decFluidOunces Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decFluidOunces * 1.8047) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function PintsToLiters Decimal decPints Returns Decimal
+        Decimal decLiters
+        
+        Move (decPints * 0.47316) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+    
+    Function USLiquidQuartsToCubicFeet Decimal decUSLiquidQuarts Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decUSLiquidQuarts * 0.03342) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function USLiquidQuartsToCubicInches Decimal decUSLiquidQuarts Returns Decimal
+        Decimal decCubicInches
+        
+        Move (decUSLiquidQuarts * 57.750) to decCubicInches
+        
+        Function_Return decCubicInches
+    End_Function
+    
+    Function USLiquidQuartsToLiters Decimal decUSLiquidQuarts Returns Decimal
+        Decimal decLiters
+        
+        Move (decUSLiquidQuarts * 0.94633) to decLiters
+        
+        Function_Return decLiters
+    End_Function
+End_Class

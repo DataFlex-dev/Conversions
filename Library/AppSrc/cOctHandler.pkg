@@ -1,0 +1,53 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cOctHandler.Pkg
+//
+// Purpose:
+//  Defines functions for octal operations
+//
+// Author:
+//  Vincent Oorsprong
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Define C_OCTAL_ERROR_VALUE for -9999999
+
+Class cOctHandler is a cObject
+    Function DecToOct Integer iDec Returns String
+        String sOct
+        
+        Repeat
+            Move (Mid ("01234567", 1, ((iDec iand $07) + 1)) + sOct) to sOct
+            Move (iDec / $08) to iDec
+        Until (iDec = 0)
+
+        Move (Right ('0000000' + sOct, 8)) to sOct
+        
+        Function_Return sOct
+    End_Function
+    
+    Function OctToDec String sOctal Returns Integer
+        Integer iPos iDec iBase
+        String sChar
+        
+        Move (Length (sOctal)) to iPos
+        Move 0 to iBase
+        
+        While (iPos > 0)
+            Move (Mid (sOctal, 1, iPos)) to sChar
+            If (not ('01234567' contains sChar)) Begin
+                Function_Return C_OCTAL_ERROR_VALUE
+            End
+            Move (iDec + (Integer (sChar) * (8 ^ iBase))) to iDec
+            Increment iBase
+            Decrement iPos
+        Loop
+        
+        Function_Return iDec
+    End_Function
+End_Class

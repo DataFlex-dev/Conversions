@@ -1,0 +1,83 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cTimeHandler.Pkg
+//
+// Purpose:
+//  Defines functions for time conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cTimeHandler is a cObject
+    Function NanoToMicroSecond UBigInt ubiNanoSecond Returns UBigInt
+        UBigInt ubiMicroSecond
+        
+        Move (ubiNanoSecond / 1000) to ubiMicroSecond
+        
+        Function_Return ubiMicroSecond
+    End_Function
+    
+    Function NanoToMilliSecond UBigInt ubiNanoSecond Returns UBigInt
+        UBigInt ubiMilliSecond
+        
+        Move (ubiNanoSecond / 1000000) to ubiMilliSecond
+        
+        Function_Return ubiMilliSecond
+    End_Function
+    
+    Function NanoToSecond UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiSecond
+        
+        Move (ubiNanoSecond / 1000000000) to uiSecond
+        
+        Function_Return uiSecond
+    End_Function
+    
+    Function NanoSecondToMinute UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiMinutes
+        
+        Move (ubiNanoSecond / 60000000000) to uiMinutes
+        
+        Function_Return uiMinutes
+    End_Function
+    
+    Function NanoSecondToHour UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiHour
+        
+        Move (ubiNanoSecond / 3600000000000) to uiHour
+        
+        Function_Return uiHour
+    End_Function
+    
+    Function NanoSecondToDay UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiDay
+        
+        Move (ubiNanoSecond / 86400000000000) to uiDay
+        
+        Function_Return uiDay
+    End_Function
+    
+    Function NanoSecondToWeek UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiWeek
+        
+        Move (ubiNanoSecond / 604800000000000) to uiWeek
+        
+        Function_Return uiWeek
+    End_Function
+    
+    Function NanoSecondToFortnight UBigInt ubiNanoSecond Returns UInteger
+        UInteger uiFortnight
+        
+        Move (ubiNanoSecond / 1209600000000000) to uiFortnight
+        
+        Function_Return uiFortnight
+    End_Function
+End_Class

@@ -1,0 +1,334 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cLengthHandler.Pkg
+//
+// Purpose:
+//  Defines functions for length conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// - http://vulcan.wr.usgs.gov/Miscellaneous/ConversionTables/conversion_table.html
+// - http://www.airproducts.com/Products/fastfacts/conversion-formulas/31300.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use Vdfbase.pkg
+
+Class cLengthHandler is a cObject
+    Function MillimetersToInches Decimal decMillimeters Returns Decimal
+        Decimal decInches
+        
+        Move (decMillimeters * 0.0393700787) to decInches
+        
+        Function_Return decInches
+    End_Function
+
+    Function CentimetersToMillimeters Decimal decCentimeters Returns Decimal
+        Decimal decMillimeters
+        
+        Move (decCentimeters * 10.0) to decMillimeters
+        
+        Function_Return decMillimeters
+    End_Function
+    
+    Function CentimetersToInches Decimal decCentimeters Returns Decimal
+        Decimal decInches
+        
+        Move (decCentimeters * 0.3937007874) to decInches
+        
+        Function_Return decInches
+    End_Function    
+    
+    Function MetersToMillimeters Decimal decMeters Returns Decimal
+        Decimal decMillimeters
+        
+        Move (decMeters * 1000) to decMillimeters
+        
+        Function_Return decMillimeters
+    End_Function
+    
+    Function MetersToCentimeters Decimal decMeters Returns Decimal
+        Decimal decCentimeters
+        
+        Move (decMeters * 100.0) to decCentimeters
+        
+        Function_Return decCentimeters
+    End_Function
+
+    Function MetersToFeet Decimal decMeters Returns Decimal
+        Decimal decFeet
+        
+        Move (decMeters * 3.2808) to decFeet
+        
+        Function_Return decFeet
+    End_Function    
+
+    Function MetersToYards Decimal decMeters Returns Decimal
+        Decimal decYards
+        
+        Move (decMeters * 1.0936) to decYards
+        
+        Function_Return decYards
+    End_Function
+
+    Function MetersToInches Decimal decMeters Returns Decimal
+        Decimal decInches
+        
+        Move (decMeters * 39.370) to decInches
+        
+        Function_Return decInches
+    End_Function
+
+    Function MetersPerSecondToFeetPerSecond Decimal decMetersPerSecond Returns Decimal
+        Decimal decFeetPerSecond
+        
+        Move (decMetersPerSecond * 3.28084) to decFeetPerSecond
+        
+        Function_Return decFeetPerSecond
+    End_Function
+    
+    Function SquareMetersToSquareFeet Decimal decSquareMeters Returns Decimal
+        Decimal decSquareFeet
+        
+        Move (decSquareMeters * 10.7639) to decSquareFeet
+        
+        Function_Return decSquareFeet
+    End_Function
+    
+    Function SquareMetersToSquareYards Decimal decSquareMeters Returns Decimal
+        Decimal decSquareYards
+        
+        Move (decSquareMeters * 1.19599) to decSquareYards
+        
+        Function_Return decSquareYards
+    End_Function
+    
+    Function SquareMetersToSquareAcres Decimal decSquareMeters Returns Decimal
+        Decimal decSquareAcres
+        
+        Move (decSquareMeters * 0.000247105) to decSquareAcres
+        
+        Function_Return decSquareAcres
+    End_Function
+    
+    Function CubicMetersToCubicFeet Decimal decCubicMeters Returns Decimal
+        Decimal decCubicFeet
+        
+        Move (decCubicMeters * 35.3147) to decCubicFeet
+        
+        Function_Return decCubicFeet
+    End_Function
+    
+    Function CubicMetersToCubicYards Decimal decCubicMeters Returns Decimal
+        Decimal decCubicYards
+        
+        Move (decCubicMeters * 1.30795) to decCubicYards
+        
+        Function_Return decCubicYards
+    End_Function
+    
+    Function CubicMetersToAcreFeet Decimal decCubicMeters Returns Decimal
+        Decimal decCubicAcreFeet
+        
+        Move (decCubicMeters * 0.000810714) to decCubicAcreFeet
+        
+        Function_Return decCubicAcreFeet
+    End_Function
+    
+    Function CubicMetersPerSecondToCubicFeetPerSecond Decimal decCubicMetersPerSecond Returns Decimal
+        Decimal decCubicFeetPerSecond
+        
+        Move (decCubicMetersPerSecond * 35.3147) to decCubicFeetPerSecond
+        
+        Function_Return decCubicFeetPerSecond
+    End_Function
+    
+    Function CubicMetersPerSecondToGallonsPerMinute Decimal decCubicMetersPerSecond Returns Decimal
+        Decimal decGallonsPerMinute
+        
+        Move (decCubicMetersPerSecond * 15850.30) to decGallonsPerMinute
+        
+        Function_Return decGallonsPerMinute
+    End_Function
+    
+    Function KilometersToMeters Decimal decKilometers Returns Decimal
+        Decimal decMeters
+        
+        Move (decKilometers * 1000.0) to decMeters
+        
+        Function_Return decMeters
+    End_Function
+    
+    Function KilometersToMiles Decimal decKilometers Returns Decimal
+        Decimal decMiles
+        
+        Move (decKilometers * 0.62137119223733) to decMiles
+        
+        Function_Return decMiles
+    End_Function    
+    
+    Function KilometersToNauticalMiles Decimal decKilometers Returns Decimal
+        Decimal decNauticalMiles
+        
+        Move (decKilometers * 0.539957) to decNauticalMiles
+        
+        Function_Return decNauticalMiles
+    End_Function
+
+    Function SquareKilometersToSquareMiles Decimal decSquareKilometers Returns Decimal
+        Decimal decSquareMiles
+        
+        Move (decSquareKilometers * 0.386102) to decSquareMiles
+        
+        Function_Return decSquareMiles
+    End_Function
+    
+    Function CubicKilometersToCubicMiles Decimal decCubicKilometers Returns Decimal
+        Decimal decCubicMiles
+        
+        Move (decCubicKilometers * 0.239913) to decCubicMiles
+        
+        Function_Return decCubicMiles
+    End_Function
+    
+    Function InchesToMillimeters Decimal decInches Returns Decimal
+        Decimal decMillimeters
+        
+        Move (decInches * 25.4) to decMillimeters
+        
+        Function_Return decMillimeters
+    End_Function
+    
+    Function InchesToCentimeters Decimal decInches Returns Decimal
+        Decimal decCentimeters
+        
+        Move (decInches * 2.54) to decCentimeters
+        
+        Function_Return decCentimeters
+    End_Function
+    
+    Function SquareInchesToSquareCentimeters Decimal decSquareInches Returns Decimal
+        Decimal decSquareCentimeters
+        
+        Move (decSquareInches * 6.5416) to decSquareCentimeters
+        
+        Function_Return decSquareCentimeters
+    End_Function
+    
+    Function FeetToInches Decimal decFeet Returns Decimal
+        Decimal decInches
+        
+        Move (decFeet * 12.0) to decInches
+        
+        Function_Return decInches
+    End_Function
+    
+    Function FeetToMeters Decimal decFeet Returns Decimal
+        Decimal decMeters
+        
+        Move (decFeet * 0.3048) to decMeters
+        
+        Function_Return decMeters
+    End_Function
+    
+    Function SquareFeetToSquareMeters Decimal decSquareFeet Returns Decimal
+        Decimal decSquareMeters
+        
+        Move (decSquareFeet * 0.092903) to decSquareMeters
+        
+        Function_Return decSquareMeters
+    End_Function
+        
+    Function CubicFeetToCubicMeters Decimal decCubicFeet Returns Decimal
+        Decimal decCubicMeters
+        
+        Move (decCubicFeet * 0.0283168) to decCubicMeters
+        
+        Function_Return decCubicMeters
+    End_Function
+    
+    Function AcreFootToCubicMeters Decimal decAcreFoot Returns Decimal
+        Decimal decCubicMeters
+        
+        Move (decAcreFoot * 1233.48) to decCubicMeters
+        
+        Function_Return decCubicMeters
+    End_Function
+    
+    Function YardToFeet Decimal decYard Returns Decimal
+        Decimal decFeet
+        
+        Move (decYard * 3) to decFeet
+        
+        Function_Return decFeet
+    End_Function
+    
+    Function YardToMeters Decimal decYard Returns Decimal
+        Decimal decMeters
+        
+        Move (decYard * 0.9144) to decMeters
+        
+        Function_Return decMeters
+    End_Function
+    
+    Function MilesToFeet Decimal decMiles Returns Decimal
+        Decimal decFeet
+        
+        Move (decMiles * 5280.0) to decFeet
+        
+        Function_Return decFeet
+    End_Function
+    
+    Function MilesToMeters Decimal decMiles Returns Decimal
+        Decimal decMeters
+        
+        Move (decMiles * 1609.34) to decMeters
+        
+        Function_Return decMeters
+    End_Function
+    
+    Function MilesToKilometers Decimal decMiles Returns Decimal
+        Decimal decKilometers
+        
+        Move (decMiles * 1.60934) to decKilometers
+        
+        Function_Return decKilometers
+    End_Function
+    
+    Function SquareMilesToSquareKilometers Decimal decSquareMiles Returns Decimal
+        Decimal decSquareKilometers
+        
+        Move (decSquareMiles * 2.58999) to decSquareKilometers
+        
+        Function_Return decSquareKilometers
+    End_Function
+    
+    Function CubicMilesToCubicKilometers Decimal decCubicMiles Returns Decimal
+        Decimal decCubicKilometers
+        
+        Move (decCubicMiles * 4.16818) to decCubicKilometers
+        
+        Function_Return decCubicKilometers
+    End_Function
+    
+    Function MicroRadianToSecondOfArc Decimal decMicroRadian Returns Decimal
+        Decimal decSecondOfArc
+        
+        Move (decMicroRadian * 0.20626479821012) to decSecondOfArc
+        
+        Function_Return decSecondOfArc
+    End_Function
+    
+    Function YardsToCentimeters Decimal decYards Returns Decimal
+        Decimal decCentimeters
+        
+        Move (decYards * 91.44) to decCentimeters
+        
+        Function_Return decCentimeters
+    End_Function
+End_Class

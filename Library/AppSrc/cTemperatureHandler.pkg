@@ -1,0 +1,71 @@
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Confidential Trade Secret.
+// Copyright 1987-2010 Data Access Corporation, Miami FL, USA
+// All Rights reserved
+// DataFlex is a registered trademark of Data Access Corporation.
+//
+// Module:
+//  cTemperatureHandler.Pkg
+//
+// Purpose:
+//  Defines functions for Temperature conversions
+//
+// Author:
+//  Vincent Oorsprong
+//
+// Measurement numbers come from:
+// Values come from: http://www.airproducts.com/Products/fastfacts/conversion-formulas/31930.asp
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Use VdfBase.pkg
+
+Class cTemperatureHandler is a cObject
+    Function CelciusToFahrenheit Decimal decCelcius Returns Decimal
+        Decimal decFahrenheit
+        
+        Move (decCelcius / 5 * 9 + 32) to decFahrenheit
+        
+        Function_Return decFahrenheit
+    End_Function
+    
+    Function FahrenheitToCelcius Decimal decFahrenheit Returns Decimal
+        Decimal decCelcius
+        
+        Move (decFahrenheit - 32 / 9 * 5) to decCelcius
+        
+        Function_Return decCelcius
+    End_Function
+    
+    // Rankine is a thermodynamic (absolute) temperature scale named after the Scottish engineer and physicist 
+    // William John Macquorn Rankine, who proposed it in 1859.
+    Function FahrenheitToRankine Decimal decFahrenheit Returns Decimal
+        Decimal decRankine
+        
+        Move (decFahrenheit + 459.67) to decRankine
+        
+        Function_Return decRankine
+    End_Function
+
+    Function RankineToFahrenheit Decimal decRankine Returns Decimal
+        Decimal decFahrenheit
+        
+        Move (decRankine - 459.67) to decFahrenheit
+        
+        Function_Return decFahrenheit
+    End_Function
+    
+    Function CelciusToKelvin Decimal decCelcius Returns Decimal
+        Decimal decKelvin
+        
+        Move (decCelcius + 273.15) to decKelvin
+        
+        Function_Return decKelvin
+    End_Function
+    
+    Function KelvinToCelcius Decimal decKelvin Returns Decimal
+        Decimal decCelcius
+        
+        Move (decKelvin - 273.15) to decCelcius
+        
+        Function_Return decKelvin
+    End_Function
+End_Class
