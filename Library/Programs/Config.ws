@@ -1,12 +1,12 @@
 [Workspace]
-Home=..\
-AppSrcPath=.\AppSrc
-AppHTMLPath=.\AppHtml
-BitmapPath=.\Bitmaps
-IdeSrcPath=.\IdeSrc
-DataPath=.\Data
-DDSrcPath=.\DdSrc
-HelpPath=.\Help
-ProgramPath=.\Programs
-FileList=.\Data\Filelist.cfg
-Description=Library with Conversion Functions
+Home=..
+AppHTMLPath=AppHtml
+AppSrcPath=AppSrc
+DataPath=Data
+DDSrcPath=DDSrc
+BitmapPath=Bitmaps
+IdeSrcPath=IdeSrc
+HelpPath=Help
+ProgramPath=Programs
+FileList=Data/FILELIST.CFG
+Description=Conversion library to convert values from one format to the other.

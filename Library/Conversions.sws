@@ -1,4 +1,11 @@
-[Properties]
-Version=25.0
-[WorkspacePaths]
-ConfigFile=.\Programs\Config.ws
+{
+    "description": "Conversion library to convert values from one format to the other.",
+    "df": 26.0,
+    "package": {
+        "df-max": 26.0,
+        "df-min": 26.0,
+        "icon": "Icon.png",
+        "version": "1.0.0"
+    },
+    "workspaceName": "Conversions"
+}
